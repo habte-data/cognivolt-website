@@ -1,134 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CogniVolt GmbH | Industrial Software & Automation</title>
-    <!-- Tailwind CSS CDN for instant styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CogniVolt GmbH | Industrial AI & Automation</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* SPLASH SCREEN */
+#splash {
+    position: fixed;
+    inset: 0;
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 0.5s forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #22d3ee;
+    letter-spacing: 6px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.5; }
+}
+
+/* REVEAL ON SCROLL */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* THEME MANAGEMENT */
+body.dark {
+    background: #020617;
+    color: #e2e8f0;
+}
+
+body.light {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.card {
+    transition: all 0.3s ease;
+    border-radius: 14px;
+}
+
+body.dark .card {
+    background: #0f172a;
+    border: 1px solid #1f2937;
+}
+
+body.light .card {
+    background: white;
+    border: 1px solid #e2e8f0;
+}
+
+/* GLOBAL LANGUAGE CONTROLLER */
+html[lang="en"] [data-lang="de"] { display: none !important; }
+html[lang="de"] [data-lang="en"] { display: none !important; }
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased">
 
-    <!-- Header / Navigation -->
-    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <span class="text-xl font-bold tracking-wider text-cyan-400">⚡ COGNIVOLT</span>
-            </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
-                <a href="#services" class="hover:text-cyan-400 transition">Services</a>
-                <a href="#about" class="hover:text-cyan-400 transition">About</a>
-                <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
-            </nav>
-            <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 text-sm font-semibold px-4 py-2 rounded transition">
-                Get in Touch
-            </a>
-        </div>
-    </header>
+<body class="dark">
 
-    <!-- Hero Section -->
-    <section class="relative py-24 overflow-hidden border-b border-slate-900">
-        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center md:text-left md:flex items-center justify-between gap-12">
-            <div class="max-w-2xl space-y-6">
-                <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                    📍 Engineered in Bremen, Germany
-                </span>
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                    Next-Generation Industrial Software & Automation
-                </h1>
-                <p class="text-lg text-slate-400 leading-relaxed">
-                    Empowering modern infrastructure with smart control systems, AI-driven analytics, and robust Operational Technology (OT) cybersecurity.
-                </p>
-                <div class="pt-4">
-                    <a href="#services" class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-base font-semibold bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition">
-                        Explore Our Services
-                    </a>
-                </div>
-            </div>
-            <div class="hidden md:block w-96 h-96 bg-gradient-to-tr from-cyan-500/10 to-indigo-500/10 rounded-2xl border border-slate-800 flex items-center justify-center p-8">
-                <div class="w-full h-full border border-dashed border-slate-700 rounded-xl flex items-center justify-center text-slate-600 font-mono text-xs">
-                    [ // OT_SECURITY_ACTIVE ]
-                </div>
-            </div>
-        </div>
-    </section>
+<div id="splash">
+    <div class="logo">⚡ COGNIVOLT</div>
+</div>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Core Capabilities</h2>
-            <p class="text-slate-400">Engineered software solutions bridging the gap between heavy operational machinery and digital intelligence.</p>
-        </div>
+<header class="sticky top-0 z-50 backdrop-blur border-b border-slate-800/50 bg-slate-950/70">
+<div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Pillar 1 -->
-            <div class="bg-slate-900/50 p-8 rounded-xl border border-slate-800 hover:border-slate-700 transition">
-                <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6 text-xl font-bold">🎛️</div>
-                <h3 class="text-xl font-semibold mb-3 text-slate-200">Industrial Automation</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Advanced development of SCADA, RTU, gateway, and control systems tailored specifically for energy grids and critical infrastructure.
-                </p>
-            </div>
-            <!-- Pillar 2 -->
-            <div class="bg-slate-900/50 p-8 rounded-xl border border-slate-800 hover:border-slate-700 transition">
-                <div class="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-6 text-xl font-bold">🧠</div>
-                <h3 class="text-xl font-semibold mb-3 text-slate-200">AI-Based Analytics</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Seamless integration of AI-driven data platforms to optimize operational efficiency, automate processes, and deliver predictive insights.
-                </p>
-            </div>
-            <!-- Pillar 3 -->
-            <div class="bg-slate-900/50 p-8 rounded-xl border border-slate-800 hover:border-slate-700 transition">
-                <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6 text-xl font-bold">🛡️</div>
-                <h3 class="text-xl font-semibold mb-3 text-slate-200">OT Cybersecurity</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Specialized Operational Technology security, offering AI-enabled monitoring to protect industrial environments against modern cyber threats.
-                </p>
-            </div>
-        </div>
-    </section>
+    <div class="font-bold text-cyan-400 text-lg">CogniVolt GmbH</div>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 border-t border-slate-900 bg-slate-900/20">
-        <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
-            <h2 class="text-3xl font-bold tracking-tight">About CogniVolt</h2>
-            <p class="text-lg text-slate-400 leading-relaxed">
-                Based in Bremen, Germany, CogniVolt GmbH is an early-stage technology and engineering firm dedicated to industrial digitalization. We support infrastructure operators with engineering, consulting, integration, and managed services to guarantee high-availability control architectures.
-            </p>
-        </div>
-    </section>
+    <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#solution" class="hover:text-cyan-400 transition">
+            <span data-lang="en">Solution</span><span data-lang="de">Lösung</span>
+        </a>
+        <a href="#services" class="hover:text-cyan-400 transition">
+            <span data-lang="en">Technology</span><span data-lang="de">Technologie</span>
+        </a>
+        <a href="#about" class="hover:text-cyan-400 transition">
+            <span data-lang="en">About</span><span data-lang="de">Über uns</span>
+        </a>
+        <a href="#contact" class="hover:text-cyan-400 transition">
+            <span data-lang="en">Contact</span><span data-lang="de">Kontakt</span>
+        </a>
+    </nav>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 max-w-3xl mx-auto px-6 border-t border-slate-900">
-        <div class="text-center mb-12 space-y-4">
-            <h2 class="text-3xl font-bold tracking-tight">Connect with an Engineer</h2>
-            <p class="text-slate-400">Let's discuss your industrial software or automation project.</p>
-        </div>
-        <form class="space-y-6 bg-slate-900/40 p-8 rounded-xl border border-slate-800" onsubmit="event.preventDefault(); alert('Message sent simulated!');">
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Name</label>
-                    <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Company Email</label>
-                    <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition">
-                </div>
-            </div>
-            <div>
-                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Message</label>
-                <textarea rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition"></textarea>
-            </div>
-            <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold py-3 rounded-lg transition shadow-lg shadow-cyan-500/10">
-                Submit Inquiry
-            </button>
-        </form>
-    </section>
+    <div class="flex gap-2">
+        <button onclick="toggleLang()" class="px-3 py-1 border border-slate-700 rounded text-xs font-semibold hover:bg-cyan-500/10 transition">EN / DE</button>
+        <button onclick="toggleTheme()" class="px-3 py-1 border border-slate-700 rounded text-xs hover:bg-cyan-500/10 transition">🌙</button>
+    </div>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-950 bg-slate-950 py-8 text-center text-xs text-slate-600">
-        <p>&copy; 2026 CogniVolt GmbH. All rights reserved. Bremen, Germany.</p>
-    </footer>
+</div>
+</header>
+
+<section class="py-24 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center reveal">
+<div>
+    <p class="text-cyan-400 text-xs uppercase tracking-wider font-bold mb-3">
+        Industrial AI Infrastructure • Bremen, Germany
+    </p>
+
+    <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        <span data-lang="en">We Build AI Systems That Run Industrial Infrastructure</span>
+        <span data-lang="de">Wir entwickeln KI-Systeme für industrielle Infrastruktur</span>
+    </h1>
+
+    <p class="text-slate-400 mt-5 text-sm md:text-base leading-relaxed">
+        <span data-lang="en">CogniVolt develops AI-driven automation and OT cybersecurity systems for energy, manufacturing, and critical infrastructure.</span>
+        <span data-lang="de">CogniVolt entwickelt KI-gestützte Automatisierungs- und OT-Sicherheitslösungen für Energie, Fertigung und kritische Infrastrukturen.</span>
+    </p>
+
+    <div class="mt-8 flex gap-4">
+        <a href="#contact" class="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black rounded-lg font-semibold shadow-lg transition">
+            <span data-lang="en">Book a Demo</span><span data-lang="de">Demo buchen</span>
+        </a>
+        <a href="#solution" class="px-6 py-3 border border-slate-700 rounded-lg font-semibold hover:bg-slate-800/40 transition">
+            <span data-lang="en">Learn More</span><span data-lang="de">Mehr erfahren</span>
+        </a>
+    </div>
+</div>
+
+<div>
+    <img class="rounded-xl border border-slate-800 shadow-2xl w-full h-[350px] object-cover"
+         src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
+         alt="Industrial Automation">
+</div>
+</section>
+
+<section id="solution" class="py-20 max-w-6xl mx-auto px-6 reveal">
+<div class="grid md:grid-cols-2 gap-10">
+
+    <div class="card p-6 border border-red-500/20 bg-red-500/5">
+        <h3 class="text-xl font-bold text-red-400">
+            <span data-lang="en">Problem</span><span data-lang="de">Das Problem</span>
+        </h3>
+        <p class="text-slate-400 mt-3 text-sm leading-relaxed">
+            <span data-lang="en">Industrial systems are fragmented, outdated, and highly vulnerable to advanced cyber threats.</span>
+            <span data-lang="de">Industrielle Netzwerke sind fragmentiert, veraltet und anfällig für moderne Cyber-Bedrohungen.</span>
+        </p>
+    </div>
+
+    <div class="card p-6 border border-cyan-500/20 bg-cyan-500/5">
+        <h3 class="text-xl font-bold text-cyan-400">
+            <span data-lang="en">Solution</span><span data-lang="de">Unsere Lösung</span>
+        </h3>
+        <p class="text-slate-400 mt-3 text-sm leading-relaxed">
+            <span data-lang="en">We unify real-time AI analytics, edge automation, and OT cybersecurity into one resilient platform.</span>
+            <span data-lang="de">Wir vereinen KI-Analysen, Edge-Automatisierung und OT-Sicherheit in einer resilienten Plattform.</span>
+        </p>
+    </div>
+
+</div>
+</section>
+
+<section id="services" class="py-20 max-w-6xl mx-auto px-6 reveal">
+<h2 class="text-3xl font-bold text-center mb-12">
+    <span data-lang="en">Core Capabilities & Systems</span>
+    <span data-lang="de">Kernkompetenzen & Systeme</span>
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+    <div class="card p-6">
+        <h3 class="text-cyan-400 font-bold text-lg">SCADA & Control Systems</h3>
+        <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+            <span data-lang="en">Development of advanced SCADA, RTU, gateway, and smart control systems for modern energy grids and critical infrastructure.</span>
+            <span data-lang="de">Entwicklung von fortschrittlichen SCADA-, RTU-, Gateway- und intelligenten Steuerungssystemen für moderne Energienetze und kritische Infrastrukturen.</span>
+        </p>
+    </div>
+
+    <div class="card p-6">
+        <h3 class="text-cyan-400 font-bold text-lg">Industrial AI & Analytics</h3>
+        <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+            <span data-lang="en">Seamless integration of AI-based automation, real-time data platforms, and predictive industrial monitoring.</span>
+            <span data-lang="de">Nahtlose Integration von KI-basierter Automatisierung, Echtzeit-Datenplattformen und vorausschauender industrieller Überwachung.</span>
+        </p>
+    </div>
+
+    <div class="card p-6">
+        <h3 class="text-cyan-400 font-bold text-lg">OT Cybersecurity</h3>
+        <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+            <span data-lang="en">Dedicated operational technology (OT) security architectures designed to safeguard digitalized industrial environments.</span>
+            <span data-lang="de">Spezialisierte Sicherheitsarchitekturen für Betriebstechnologie (OT) zum Schutz digitalisierter Industrieumgebungen.</span>
+        </p>
+    </div>
+</div>
+
+<div class="mt-10 p-6 card border border-slate-800 bg-slate-900/10 text-center max-w-3xl mx-auto">
+    <p class="text-slate-300 text-sm md:text-base font-medium">
+        <span data-lang="en">Looking for deployment? We provide full-scale <strong>Engineering, Consulting, Integration, & Support Services</strong> alongside premium hardware/software trading solutions.</span>
+        <span data-lang="de">Suchen Sie nach Unterstützung? Wir bieten umfassende <strong>Engineering-, Consulting-, Integrations- und Support-Dienstleistungen</strong> sowie erstklassige Hardware-/Software-Handelslösungen.</span>
+    </p>
+</div>
+</section>
+
+<section class="py-20 max-w-6xl mx-auto px-6 reveal">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+    
+    <img class="rounded-xl border border-slate-800 shadow-xl w-full h-[350px] object-cover"
+         src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=800&q=80" 
+         alt="Industrial Infrastructure">
+
+    <div>
+        <h2 class="text-3xl font-bold">
+            <span data-lang="en">Built for Industrial-Grade Deployment</span>
+            <span data-lang="de">Für industrielle Einsätze entwickelt</span>
+        </h2>
+
+        <p class="text-slate-400 mt-4 text-sm md:text-base leading-relaxed">
+            <span data-lang="en">Our systems are engineered for real-world industrial environments including energy grids, factories, and infrastructure networks. We focus on reliability, safety, and long-term stability.</span>
+            <span data-lang="de">Unsere Systeme sind für reale industrielle Umgebungen wie Energienetze, Produktionsanlagen und Fabriken konzipiert. Wir fokussieren uns vollständig auf Zuverlässigkeit, Sicherheit und Langzeitstabilität.</span>
+        </p>
+    </div>
+
+</div>
+</section>
+
+<section id="about" class="py-20 bg-slate-900/10 border-y border-slate-800/30 reveal">
+<div class="max-w-3xl mx-auto text-center px-6">
+    <h2 class="text-3xl font-bold mb-5">
+        <span data-lang="en">About CogniVolt</span>
+        <span data-lang="de">Über CogniVolt</span>
+    </h2>
+    <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+        <span data-lang="en">CogniVolt GmbH is a Germany-based industrial AI company focused on automation, cybersecurity, and intelligent infrastructure systems.</span>
+        <span data-lang="de">Die CogniVolt GmbH ist ein deutsches Industrie-KI-Unternehmen, das sich auf Automatisierung, Cybersecurity und intelligente Infrastruktursysteme spezialisiert hat.</span>
+    </p>
+</div>
+</section>
+
+<section id="contact" class="py-24 max-w-3xl mx-auto px-6 reveal">
+<h2 class="text-3xl font-bold text-center mb-8">
+    <span data-lang="en">Contact / Investment Inquiry</span>
+    <span data-lang="de">Kontakt / Investorenanfrage</span>
+</h2>
+
+<form class="space-y-4" onsubmit="event.preventDefault();">
+    
+    <input class="w-full p-3 border border-slate-700 rounded bg-transparent focus:border-cyan-400 outline-none" placeholder="Name">
+    
+    <span data-lang="en">
+        <input class="w-full p-3 border border-slate-700 rounded bg-transparent focus:border-cyan-400 outline-none" type="email" placeholder="Email">
+    </span>
+    <span data-lang="de">
+        <input class="w-full p-3 border border-slate-700 rounded bg-transparent focus:border-cyan-400 outline-none" type="email" placeholder="E-Mail-Adresse">
+    </span>
+
+    <div data-lang="en">
+        <select class="w-full p-3 border border-slate-700 rounded bg-slate-900 text-slate-300 focus:border-cyan-400 outline-none">
+            <option>Investor</option>
+            <option>Partner</option>
+            <option>Client</option>
+        </select>
+    </div>
+    <div data-lang="de">
+        <select class="w-full p-3 border border-slate-700 rounded bg-slate-900 text-slate-300 focus:border-cyan-400 outline-none">
+            <option>Investor</option>
+            <option>Partner</option>
+            <option>Kunde</option>
+        </select>
+    </div>
+
+    <span data-lang="en">
+        <textarea class="w-full p-3 border border-slate-700 rounded bg-transparent focus:border-cyan-400 outline-none" rows="4" placeholder="Your Message"></textarea>
+    </span>
+    <span data-lang="de">
+        <textarea class="w-full p-3 border border-slate-700 rounded bg-transparent focus:border-cyan-400 outline-none" rows="4" placeholder="Ihre Nachricht"></textarea>
+    </span>
+
+    <button class="w-full bg-cyan-500 hover:bg-cyan-400 text-black py-3 rounded font-bold shadow-lg transition">
+        <span data-lang="en">Request Meeting</span><span data-lang="de">Termin vereinbaren</span>
+    </button>
+</form>
+</section>
+
+<footer class="py-8 text-center text-sm text-slate-500 border-t border-slate-800/40">
+    © 2026 CogniVolt GmbH — Industrial AI Infrastructure, Germany
+</footer>
+
+<script>
+/* STABLE LIGHT/DARK THEME TOGGLE */
+function toggleTheme() {
+    document.body.classList.toggle("light");
+    document.body.classList.toggle("dark");
+    const btn = document.querySelector("button[onclick='toggleTheme()']");
+    btn.innerHTML = document.body.classList.contains("light") ? "🌙" : "☀️";
+}
+
+/* HIGH PERFORMANCE LANGUAGE SWITCHER */
+function toggleLang() {
+    const currentLang = document.documentElement.getAttribute("lang");
+    const nextLang = currentLang === "en" ? "de" : "en";
+    document.documentElement.setAttribute("lang", nextLang);
+}
+
+/* SCROLL REVEAL ANIMATION ENGINE */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* SPLASH SCREEN REMOVER */
+window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        const splash = document.getElementById("splash");
+        if(splash) splash.style.display = "none";
+    }, 2000);
+});
+</script>
 
 </body>
 </html>

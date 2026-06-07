@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CogniVolt GmbH | Industrial Software & Automation</title>
+    <!-- Tailwind CSS CDN for instant styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl font-bold tracking-wider text-cyan-400">⚡ COGNIVOLT</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#services" class="hover:text-cyan-400 transition">Services</a>
+                <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+            </nav>
+            <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 text-sm font-semibold px-4 py-2 rounded transition">
+                Get in Touch
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-24 overflow-hidden border-b border-slate-900">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center md:text-left md:flex items-center justify-between gap-12">
+            <div class="max-w-2xl space-y-6">
+                <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                    Founded May 2026 • Bremen, Germany
+                </span>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                    Next-Generation Industrial Software & Automation
+                </h1>
+                <p class="text-lg text-slate-400 leading-relaxed">
+                    Empowering modern infrastructure with smart control systems, AI-driven analytics, and robust Operational Technology (OT) cybersecurity.
+                </p>
+                <div class="pt-4">
+                    <a href="#services" class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-base font-semibold bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition">
+                        Explore Our Services
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:block w-96 h-96 bg-gradient-to-tr from-cyan-500/10 to-indigo-500/10 rounded-2xl border border-slate-800 flex items-center justify-center p-8">
+                <div class="w-full h-full border border-dashed border-slate-700 rounded-xl flex items-center justify-center text-slate-600 font-mono text-xs">
+                    [ // OT_SECURITY_ACTIVE ]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Core Capabilities</h2>
+            <p class="text-slate-400">Engineered software solutions bridging the gap between heavy operational machinery and digital intelligence.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Pillar 1 -->
+            <div class="bg-slate-900/50 p-8 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+                <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6 text-xl font-bold">🎛️</div>
+                <h3 class="text-xl font-semibold mb-3 text-slate-200">Industrial Automation</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Advanced development of SCADA, RTU, gateway, and control systems tailored specifically for energy grids and critical infrastructure.
+                </p>
+            </div>
+            <!-- Pillar 2 -->
+            <div class="bg-slate-900/50 p-8 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+                <div class="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-6 text-xl font-bold">🧠</div>
+                <h3 class="text-xl font-semibold mb-3 text-slate-200">AI-Based Analytics</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Seamless integration of AI-driven data platforms to optimize operational efficiency, automate processes, and deliver predictive insights.
+                </p>
+            </div>
+            <!-- Pillar 3 -->
+            <div class="bg-slate-900/50 p-8 rounded-xl border border-slate-800 hover:border-slate-700 transition">
+                <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6 text-xl font-bold">🛡️</div>
+                <h3 class="text-xl font-semibold mb-3 text-slate-200">OT Cybersecurity</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Specialized Operational Technology security, offering AI-enabled monitoring to protect industrial environments against modern cyber threats.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 border-t border-slate-900 bg-slate-900/20">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
+            <h2 class="text-3xl font-bold tracking-tight">About CogniVolt</h2>
+            <p class="text-lg text-slate-400 leading-relaxed">
+                Based in Bremen, Germany, CogniVolt GmbH is an early-stage technology and engineering firm dedicated to industrial digitalization. We support infrastructure operators with engineering, consulting, integration, and managed services to guarantee high-availability control architectures.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 max-w-3xl mx-auto px-6 border-t border-slate-900">
+        <div class="text-center mb-12 space-y-4">
+            <h2 class="text-3xl font-bold tracking-tight">Connect with an Engineer</h2>
+            <p class="text-slate-400">Let's discuss your industrial software or automation project.</p>
+        </div>
+        <form class="space-y-6 bg-slate-900/40 p-8 rounded-xl border border-slate-800" onsubmit="event.preventDefault(); alert('Message sent simulated!');">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Name</label>
+                    <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Company Email</label>
+                    <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition">
+                </div>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Message</label>
+                <textarea rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-cyan-500 transition"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold py-3 rounded-lg transition shadow-lg shadow-cyan-500/10">
+                Submit Inquiry
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-950 bg-slate-950 py-8 text-center text-xs text-slate-600">
+        <p>&copy; 2026 CogniVolt GmbH. All rights reserved. Bremen, Germany.</p>
+    </footer>
+
+</body>
+</html>
